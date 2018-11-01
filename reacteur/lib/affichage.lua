@@ -36,7 +36,7 @@ local function _bloc(bloc)
 
 	-- ecrit le titre
 	if bloc.title ~= nil then
-		gpu.fill(bloc.x + mar, bloc.y + mar, bloc.title.len() + 2, bloc.y + mar, " ")
+		gpu.fill(bloc.x + mar, bloc.y + mar, string.len(bloc.title) + 2, bloc.y + mar, " ")
 		gpu.set(bloc.x + mar + 1, bloc.y + mar, bloc.title)
 	end
 
