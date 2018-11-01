@@ -139,7 +139,7 @@ while true do
 			string.format("Control Rod level : %i%%", reactor.getControlRodLevel(1))
 		}
 
-		affichage.bloc{x = 3, y = 3 + (i*10), l = 50, h = 8, blocColor = 0x6666dd, title = "N° " + i, content = textArg}
+		affichage.bloc{x = 3, y = 3 + (i*10), l = 50, h = 8, blocColor = 0x6666dd, title = "N° " + tostring(i), content = textArg}
 	end
 
 	local timeRemp = CalculTime(core.getEnergyStored(), core.getMaxEnergyStored(), core.getTransferPerTick())
