@@ -37,7 +37,7 @@ local function _bloc(bloc)
 
 	-- ecrit le titre
 	if bloc.title ~= nil then
-		local titlePosX = bloc.x + mar + 1
+		local titlePosX = bloc.x + mar + 2
 		local titlePosY = bloc.y + mar
 
 		gpu.fill(titlePosX, titlePosY, unicode.len(bloc.title) + 2, bor, " ")
