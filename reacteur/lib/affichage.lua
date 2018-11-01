@@ -89,8 +89,8 @@ function affichage.bloc(arg)	--x,y,l,h : number; [blocColor,foreColor] : number;
 	end
 
 	print(arg.title)
-	
-	_bloc{
+
+	--[[_bloc{
 		x = arg.x,
 		y = arg.y,
 		l = arg.l,
@@ -100,7 +100,7 @@ function affichage.bloc(arg)	--x,y,l,h : number; [blocColor,foreColor] : number;
 		title = arg.title or nil,
 		content = arg.content or nil,
 		bloc = arg.bloc or nil}
-
+--]]
 end
 
 -- retourn la classe
