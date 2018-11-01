@@ -112,7 +112,7 @@ while true do
 		loopCount = 0
 	end
 
-	affichage.bloc{x = 1, y = 1, l = 60, h = 40, blocColor = 0x000000, title = "Reacteurs nucléaire"}
+	affichage.bloc{x = 1, y = 1, l = 60, h = 40, blocColor = 0x000000, title = "Reacteurs nucleaire"}
 
 	local i = -1
 
