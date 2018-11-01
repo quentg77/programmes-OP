@@ -22,7 +22,7 @@ local pad = 1 --padding par defaut
 
 local mar = 1 --marge par defaut
 
-local bor = 2 --border par defaut
+local bor = 1 --border par defaut
 
 -- methods privée
 
@@ -34,6 +34,11 @@ local function _bloc(bloc)
 	gpu.setBackground(bloc.blocColor)
 	gpu.fill(bloc.x + mar + bor, bloc.y + mar + bor, bloc.l - (bor * 2), bloc.h - (bor * 2), " ")
 
+	-- ecrit le titre
+	gpu.fill(bloc.x + mar, bloc.y + mar, bloc.title.len() + 2, bloc.y + mar, " ")
+	gpu.set(bloc.x + mar + 1, bloc.y + mar, bloc.title)
+
+	-- construit le contenue du bloc
 	if bloc.content ~= nil then
 		for i,line in ipairs(bloc.content) do
 			gpu.set(bloc.x + mar + bor + pad, bloc.y + mar + bor + pad + (i-1), line)
@@ -72,6 +77,8 @@ function affichage.bloc(arg)	--x,y,l,h : number; [blocColor,foreColor] : number;
 		error("'blocColor' incorrect variable de type '"..type(arg.blocColor).."', -5 point pour Nitendor")
 	elseif type(arg.foreColor) ~= "number" and arg.foreColor ~= nil then
 		error("'foreColor' incorrect variable de type '"..type(arg.foreColor).."', -5 point pour Nitendor")
+	elseif type(arg.title) ~= "string" and arg.title ~= nil then
+		error("'arg' incorrect variable de type '"..type(arg.bloc).."', -5 point pour Nitendor")
 	elseif type(arg.content) ~= "table" and arg.content ~= nil then
 		error("'arg' incorrect variable de type '"..type(arg.content).."', -5 point pour Nitendor")
 	elseif type(arg.bloc) ~= "table" and arg.bloc ~= nil then
@@ -79,13 +86,14 @@ function affichage.bloc(arg)	--x,y,l,h : number; [blocColor,foreColor] : number;
 	end
 
 	_bloc{
-		x = arg.x, 
-		y = arg.y, 
-		l = arg.l, 
-		h = arg.h, 
-		blocColor = arg.blocColor or blColor, 
-		foreColor = arg.foreColor or fColor, 
-		content = arg.content or nil, 
+		x = arg.x,
+		y = arg.y,
+		l = arg.l,
+		h = arg.h,
+		blocColor = arg.blocColor or blColor,
+		foreColor = arg.foreColor or fColor,
+		title = arg.title or nil,
+		content = arg.content or nil,
 		bloc = arg.bloc or nil}
 end
 

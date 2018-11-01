@@ -157,14 +157,14 @@ while true do
 
 	local textCore = 
 	{
-		string.format("Niveau d'energie : %.2f kRf", core.getEnergyStored() / 1000),
+		string.format("Energie stocker : %.2f kRf", core.getEnergyStored() / 1000),
 		string.format("Niveau d'energie : %.4f%%", EnergyLvl(core)),
 		string.format("Flux d'energie : %.2f kRf/t", core.getTransferPerTick() / 1000),
 		string.format("Temps remplissage restant : %id %ih %im %is", timeRemp[4], timeRemp[3], timeRemp[2], timeRemp[1]),
 		string.format("Temps Vidage restant : %id %ih %im %is", timeVid[4], timeVid[3], timeVid[2], timeVid[1])
 	}
 
-	affichage.bloc{x = 70, y = 1, l = 60, h = 40, blocColor = 0x000000, content = textCore}
+	affichage.bloc{x = 70, y = 1, l = 60, h = 40, blocColor = 0x000000, title = "keur d'Energie", content = textCore}
 
 	os.sleep(1)
 end
