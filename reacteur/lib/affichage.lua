@@ -35,11 +35,11 @@ local function _bloc(bloc)
 	gpu.fill(bloc.x + mar + bor, bloc.y + mar + bor, bloc.l - (bor * 2), bloc.h - (bor * 2), " ")
 
 	-- ecrit le titre
-	print(bloc.title)
+	--[[print(bloc.title)
 	if bloc.title ~= nil then
 		gpu.fill(bloc.x + mar, bloc.y + mar, bloc.title.len() + 2, bloc.y + mar, " ")
 		gpu.set(bloc.x + mar + 1, bloc.y + mar, bloc.title)
-	end
+	end--]]
 
 	-- construit le contenue du bloc
 	if bloc.content ~= nil then
