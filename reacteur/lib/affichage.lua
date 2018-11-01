@@ -22,7 +22,7 @@ local pad = 1 --padding par defaut
 
 local mar = 1 --marge par defaut
 
-local bor = 1 --border par defaut
+local bor = 2 --border par defaut
 
 -- methods privée
 
