@@ -88,6 +88,8 @@ function affichage.bloc(arg)	--x,y,l,h : number; [blocColor,foreColor] : number;
 		error("'bloc' incorrect variable de type '"..type(arg.bloc).."', -5 point pour Nitendor")
 	end
 
+	print(arg.title)
+	
 	_bloc{
 		x = arg.x,
 		y = arg.y,
@@ -98,6 +100,7 @@ function affichage.bloc(arg)	--x,y,l,h : number; [blocColor,foreColor] : number;
 		title = arg.title or nil,
 		content = arg.content or nil,
 		bloc = arg.bloc or nil}
+
 end
 
 -- retourn la classe
