@@ -35,8 +35,10 @@ local function _bloc(bloc)
 	gpu.fill(bloc.x + mar + bor, bloc.y + mar + bor, bloc.l - (bor * 2), bloc.h - (bor * 2), " ")
 
 	-- ecrit le titre
-	gpu.fill(bloc.x + mar, bloc.y + mar, bloc.title.len() + 2, bloc.y + mar, " ")
-	gpu.set(bloc.x + mar + 1, bloc.y + mar, bloc.title)
+	if (bloc.title) then
+		gpu.fill(bloc.x + mar, bloc.y + mar, bloc.title.len() + 2, bloc.y + mar, " ")
+		gpu.set(bloc.x + mar + 1, bloc.y + mar, bloc.title)
+	end
 
 	-- construit le contenue du bloc
 	if bloc.content ~= nil then
@@ -78,7 +80,7 @@ function affichage.bloc(arg)	--x,y,l,h : number; [blocColor,foreColor] : number;
 	elseif type(arg.foreColor) ~= "number" and arg.foreColor ~= nil then
 		error("'foreColor' incorrect variable de type '"..type(arg.foreColor).."', -5 point pour Nitendor")
 	elseif type(arg.title) ~= "string" and arg.title ~= nil then
-		error("'arg' incorrect variable de type '"..type(arg.bloc).."', -5 point pour Nitendor")
+		error("'arg' incorrect variable de type '"..type(arg.title).."', -5 point pour Nitendor")
 	elseif type(arg.content) ~= "table" and arg.content ~= nil then
 		error("'arg' incorrect variable de type '"..type(arg.content).."', -5 point pour Nitendor")
 	elseif type(arg.bloc) ~= "table" and arg.bloc ~= nil then
