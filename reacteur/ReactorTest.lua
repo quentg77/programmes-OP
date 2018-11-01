@@ -97,7 +97,7 @@ local function RodAjustement()
 			end
 		end
 
-		reactor.setAllControlRodLevels(50) -- provisoiration
+		reactor.setAllControlRodLevels(100) -- provisoiration
 	end
 end
 
@@ -112,7 +112,7 @@ while true do
 		loopCount = 0
 	end
 
-	affichage.bloc{x = 1, y = 1, l = 60, h = 40, blocColor = 0x000000}
+	affichage.bloc{x = 1, y = 1, l = 60, h = 40, blocColor = 0x000000, title = "Reacteurs nucléaire"}
 
 	local i = -1
 
@@ -139,7 +139,7 @@ while true do
 			string.format("Control Rod level : %i%%", reactor.getControlRodLevel(1))
 		}
 
-		affichage.bloc{x = 3, y = 3 + (i*10), l = 50, h = 8, blocColor = 0x6666dd, content = textArg}
+		affichage.bloc{x = 3, y = 3 + (i*10), l = 50, h = 8, blocColor = 0x6666dd, title = "N° " + i, content = textArg}
 	end
 
 	local timeRemp = CalculTime(core.getEnergyStored(), core.getMaxEnergyStored(), core.getTransferPerTick())
@@ -164,7 +164,7 @@ while true do
 		string.format("Temps Vidage restant : %id %ih %im %is", timeVid[4], timeVid[3], timeVid[2], timeVid[1])
 	}
 
-	affichage.bloc{x = 70, y = 1, l = 60, h = 40, blocColor = 0x000000, title = "keur d'Energie", content = textCore}
+	affichage.bloc{x = 70, y = 1, l = 60, h = 40, blocColor = 0x000000, title = "Coeur d'Energie", content = textCore}
 
 	os.sleep(1)
 end
