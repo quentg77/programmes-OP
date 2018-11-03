@@ -19,6 +19,8 @@ local fColor = 0xffffff --couleur du texte par defaut
 
 local brColor = 0x444444 --couleur du border par defaut
 
+local bkTlColor = 0x000000 --couleur du fond du titre
+
 local pad = 1 --padding par defaut
 
 local mar = 1 --marge par defaut
@@ -35,6 +37,8 @@ local function _bloc(bloc)
 	gpu.fill(bloc.x + mar, bloc.y + mar, bloc.l, bloc.h, " ")
 
 	-- ecrit le titre
+	gpu.setBackground(bkTlColor)
+
 	if bloc.title ~= nil then
 		local titlePosX = bloc.x + mar + 2
 		local titlePosY = bloc.y + mar
@@ -52,8 +56,13 @@ local function _bloc(bloc)
 		for i,line in ipairs(bloc.content) do
 			if type(line) == "string" then
 				gpu.set(bloc.x + mar + bor + pad, bloc.y + mar + bor + pad + (i-1), line)
+			elseif type(line) == "table" then
+				print(bloc.content[i])
+				if bloc.content[i] == "progressBar" then
+					print("ok")
+				end
 			else
-				error(string.format("la ligne n° %i n'est pas reconu par le bloc comme un type valide", i))
+				error(string.format("la ligne n°%i n'est pas reconu par le bloc comme un type valide", i))
 			end
 		end
 	end
