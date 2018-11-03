@@ -108,7 +108,7 @@ while true do
 	term.clear()
 
 	if loopCount >=30 then
-		RodAjustement()
+		--RodAjustement()
 		loopCount = 0
 	end
 
