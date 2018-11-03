@@ -51,9 +51,9 @@ local function _bloc(bloc)
 	if bloc.content ~= nil then
 		for i,line in ipairs(bloc.content) do
 			if type(line) == "string" then
-				--gpu.set(bloc.x + mar + bor + pad, bloc.y + mar + bor + pad + (i-1), line)
+				gpu.set(bloc.x + mar + bor + pad, bloc.y + mar + bor + pad + (i-1), line)
 			else
-				--error(string.format("la ligne n° %i n'est pas reconu par le bloc comme un type valide"), i)
+				error(string.format("la ligne n° %i n'est pas reconu par le bloc comme un type valide"), i)
 			end
 		end
 	end
