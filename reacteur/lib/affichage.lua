@@ -57,7 +57,7 @@ local function _bloc(bloc)
 			if type(line) == "string" then
 				gpu.set(bloc.x + mar + bor + pad, bloc.y + mar + bor + pad + (i-1), line)
 			elseif type(line) == "table" then
-				error(string.format("le type est de : %"bloc.content[i]))
+				error(string.format("le type est de : %", bloc.content[i]))
 				if bloc.content[i] == "progressBar" then
 					print("ok")
 				end
