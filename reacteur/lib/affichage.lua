@@ -30,10 +30,9 @@ local bor = 1 --border par defaut
 local function _bloc(bloc)
 	gpu.setForeground(bloc.foreColor)
 
+	-- construit les bordures
 	gpu.setBackground(brColor)
 	gpu.fill(bloc.x + mar, bloc.y + mar, bloc.l, bloc.h, " ")
-	gpu.setBackground(bloc.blocColor)
-	gpu.fill(bloc.x + mar + bor, bloc.y + mar + bor, bloc.l - (bor * 2), bloc.h - (bor * 2), " ")
 
 	-- ecrit le titre
 	if bloc.title ~= nil then
@@ -44,15 +43,27 @@ local function _bloc(bloc)
 		gpu.set(titlePosX + 1, titlePosY, bloc.title)
 	end
 
+	-- construit la couleur du bloc
+	gpu.setBackground(bloc.blocColor)
+	gpu.fill(bloc.x + mar + bor, bloc.y + mar + bor, bloc.l - (bor * 2), bloc.h - (bor * 2), " ")
+
 	-- construit le contenue du bloc
 	if bloc.content ~= nil then
 		for i,line in ipairs(bloc.content) do
-			gpu.set(bloc.x + mar + bor + pad, bloc.y + mar + bor + pad + (i-1), line)
+			if type(line) = "string" then
+				gpu.set(bloc.x + mar + bor + pad, bloc.y + mar + bor + pad + (i-1), line)
+			else
+				error(string.format("la ligne n° %i n'est pas reconu par le bloc comme un type valide"), i)
+			end
 		end
 	end
 
 	gpu.setBackground(bkColor)
 	gpu.setForeground(fColor)
+end
+
+local function _progressbar(arg)
+	-- body
 end
 
 -- methods public
