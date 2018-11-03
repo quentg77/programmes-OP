@@ -17,7 +17,7 @@ local blColor = 0x888888 --couleur du bloc par defaut
 
 local fColor = 0xffffff --couleur du texte par defaut
 
-local brColor = 0x444444 --couleur du border par defaut
+local brColor = 0xffaa00 --couleur du border par defaut
 
 local bkTlColor = 0x000000 --couleur du fond du titre
 
@@ -57,7 +57,7 @@ local function _bloc(bloc)
 			if type(line) == "string" then
 				gpu.set(bloc.x + mar + bor + pad, bloc.y + mar + bor + pad + (i-1), line)
 			elseif type(line) == "table" then
-				print(bloc.content[i])
+				error(string.format("le type est de : %"bloc.content[i]))
 				if bloc.content[i] == "progressBar" then
 					print("ok")
 				end
